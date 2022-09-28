@@ -1,0 +1,742 @@
+/* Sequence: Standard, Classes, IDs
+    Files are processed from top to bottom, so special cases (classes) come after standard entities and unique cases (IDs) come last.  So, if there are any duplictae attributes, then standard attributes will be replaced by the special (class) / unique (ID) attributes.
+
+    banner image: background-image: url('../media_gen/abba-sunrise.png - removed for performance considerations on old / slow devices
+*/
+/*  Attributes of 'body' are global to the site and all items contained therein */
+    :root {
+        --main-background: #75cde1;  /* light sea blue/green */
+        --main-text-color:#570303; /* 2f1b03 dark brown */
+        --main-text-color2: #00008b; /* dark blue #d03400 */
+        --std-background: #00d0d0; /* 00d0d0 7fd7d7  #009a9a light blue/green */
+        --stdinfo-background: #75cde1; /* same as main bkgrnd */
+        --stdinfo-border: #d06800; /* no border=same as bkgrnd */
+        --button-background: #d3d3d3; /* light grey */
+        --button-color: #000000; /* black */
+        --button-hover: #fafad2; /* lightgoldenrodyellow */
+        --button-active: #ff0000; /* red */
+        --button-page: #0000ff; /* blue */
+        --audio-background: #50cdec;
+        --media-background: #333333; /* soft black (charcoal) */
+        --media-color: #f0f0f0; /* soft off-white */
+        --mbox-background: #75cde1 /* aqua / light green/blue 44dc8d */ ;
+        --auditem-background: #d2aa7e;
+        --aud-border: #0000ff;
+        --dark-border: #165d5c;
+        --eml-background: #333333; /* soft black button background */
+        --eml-color: #ffff00; /* yellow */
+        --eml-text: #000; /* black */
+        --head-color: #000; /* 00008b dark blue */
+        --head-shadow: magenta; /* 570303 ea00ff yellow - red */
+        --robot-color: #333333; /* soft black (charcoal) */
+    }
+    body { /* colors not in variables - for really old browsers */
+        background-color:  #75cde1;  /* light sea blue */
+        color: #570303; /* dark brown */
+		font-family: Arial, Helvetica, sans-serif, times, serif;
+        line-height: 1;
+        /*font-size: 16px;*/
+		font-size: 100%; /* for some (IE) browsers that handle 'em' badly */
+    }
+    /* This ID is listed near the top since it is 'global'.  All other ID's are listed near the bottom of this file */
+    #bodydiv { 
+        background-color: var(--main-background);  /* light sea blue/green */
+        /*background-color: red;*/
+		color: var(--main-text-color2);
+        width: 99%;
+        margin: 0 auto;
+	} /* default & for mobile and tablet */
+    @media only screen and (min-width: 769px) {
+        #bodydiv {
+            color:var(--main-text-color);
+            width: 95%;
+    }} /* for wider screen */
+    @media only screen and (min-width: 1209px) {
+        #bodydiv {
+            max-width: 1500px;
+    }} /* for rather wide screen */
+
+    /* Standard */
+
+    p {
+        padding: 0; 
+        margin: 0 auto;
+    }
+
+    span {
+        width: auto;
+        padding: 1%; 
+        margin: 1% auto;
+    }
+
+    a {
+        background-color: var(--button-background);
+        border: 2px solid var(--button-background); /* for user overriding the colors */
+        color: var(--button-color);
+        font-size: 1.2em;
+        font-style: normal;
+        text-align: center;
+		text-decoration: none;
+        line-height: 200%;
+        margin: 0.5em 0.8em;
+        padding: 0.3em 0.7em;
+        box-shadow: 5px 5px 7px grey;
+	} /* same look for 'a' links .. navtop & navbottom have other attributes */
+    a:active {
+        color: var(--button-active);
+        border: 2px solid var(--button-active);
+        font-style: italic;
+    } /* navtop & navbottom have no additional attributes for active */
+    a:hover {
+        background-color: var(--button-hover); /*  lightskyblue  */
+        border: 2px solid var(--button-hover); /* normal colors: not needed; user overriding colors: shows border in different (contrast) color */
+        font-style: italic;
+        box-shadow: -5px -5px 7px var(--button-background); /*  lightgrey  */
+    } /* navtop & navbottom have no additional attributes for hover */
+
+    h1 {
+		font: 2.3em  Arial, Helvetica, sans-serif;
+        text-align: center;
+		margin: 0.5em auto;
+	}
+
+    h2 {
+		font: 2.2em  Arial, Helvetica, sans-serif;
+        text-align: center;
+		margin: 0.2em auto;
+        padding: 0;
+	}
+	
+	h3 {
+		font: 2.1em  Arial, Helvetica, sans-serif;
+		margin: 0.2em auto;
+        padding: 0.8em;
+        padding-bottom: 0; /* closer to text directly below it */
+	}
+	
+	h4 {
+		font: 1.6em  Arial, Helvetica, sans-serif;
+		margin: 0.2em auto;
+        padding: 0.2em;
+        line-height: 100%;
+	}
+
+    /* Classes */
+
+    .mpz {
+        margin: 0;
+        padding: 0;
+        line-height: 100%;
+    }
+    .navactive   {
+        display: inline;
+        color: var(--button-page); /* show as active link for this page */
+        font-weight: bold;
+    } /* visible (active) menu items */
+    .navshow {
+        display: inline;
+        color: var(--button-color); /* show as inactive link i.e. for another page */
+    } /* visible (inactive) menu items */
+    .navhide {
+        display: none;
+    } /* hide menu items (invisible) - temporarily (while busy with page) */
+    .navtran {
+        display: none; /* only needed to stop translaters from making a sentence out of the nav-bar */
+        /*display:inline-block;*/
+    } /* 'block break' between items of menu for translation */
+
+    .navout { /* this is a class, so there can be more than 1 */
+        width: 95%;
+        display: block;
+        text-align: center;
+        align-items: center;
+        margin: 0.5em auto;
+        padding: 0.5em;
+        line-height: 200%;
+        clear: both;
+    } /* similar to navbottom (ID) */
+
+    .navlink { /* this is a class, so there can be more than 1 */
+        /*width: 95%;*/
+        display: inline-block;
+        font-size: 1.2rem;
+        text-align: center;
+        align-items: center;
+        margin: 0.1em auto;
+        padding: 0.1em;
+        line-height: 100%;
+    } /* smaller than navbottom (ID) */
+    .navlink a {
+        font-size: 1.0rem;
+    }
+
+    .stdupper {
+        display: block;
+        font-size: 1.3em;
+        margin: 0.1em auto;
+        padding: 0.1em;
+        clear: both;
+    }
+    .stdlower, .stdaudio, .stdinfo {
+        display: block;
+        font-size: 1.3em;
+        margin: 1% auto;
+        padding: 1% 0;
+        clear: both;
+    }
+    .stdlower, .stdinfo {
+        background-color: var(--std-background); /* fairly light blue/green */
+    }
+    .stdaudio {
+        background-color: var(--audio-background); /* same background as audiodiv */
+    }
+    .stdinfo {
+        border: 4px solid  var(--stdinfo-border);
+    }
+
+    .stdinfo  h1, h2, h3, h4, h5, h6 {
+        /*border: 0.1px solid yellow;*/
+        width: 90%;
+        margin: 2% auto;
+        padding: 0.5% 5%;
+        text-align: center;
+    }
+    .stdinfo p {
+        
+        background-color: var(--stdinfo-background);
+        width: 90%;
+        max-width: 1200px;
+        font-size: 1.0em;
+        font-weight: normal;
+        color: #000000;
+        margin: 2% auto;
+        padding: 2%;
+        text-align: center;
+    }
+
+    .mediadiv {
+        /*background-color: orange;*/
+        color: var(--main-text-color);
+        width: 90%;
+        display: flex;
+        flex-flow: column nowrap;
+        /*overflow: auto; /* in case we change to wrap ... */
+        margin: 0.1em auto;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+
+    .mediadiv img {
+        background-color: var(--media-background); /* 7D1F1F */
+        color: var(--media-color);
+        flex-basis: 90%;
+        width: 80%;
+        margin: 0.2em  auto;
+        padding: 0.2em;
+    }
+
+    .medcurr, .medprev { /* media on Home and Archive pages */
+        font-size: 1.2em;
+        color: var(--main-text-color);
+        margin: 0.2em auto;
+        padding: 0.2em 1%;
+        align-self: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .medcurr { /* media on Home page - current week */
+        /*background-color:coral;*/
+        border: 0.1em solid var(--main-text-color);
+        width: 80%;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .medprev { /* media on Archive page(s) - previous week(s) */
+        /*background-color: orange;*/
+        display: flex;
+        flex-flow: row wrap;
+        overflow: auto;
+    }
+    .medcurr   p, .medprev   p, .medcurr  div, .medprev  div {
+        /*background-color: aqua;*/
+        width: 80%;
+        /*min-width: max-content;*/
+        text-align: center;
+        margin: 0.1em auto;
+        padding: 0.1em;
+    }
+    .medcurr  div, .medprev  div {
+        width: 100%;
+    }
+    .medcurr  audio, .medprev   audio {
+        /*background-color: aqua;*/
+        width: 80%;
+        align-self: center;
+        margin: 0.4em auto;
+        padding: 0.4em; 
+    }
+    .medcurr   video, .medprev   video {
+        background-color: var(--media-background); /* soft black */
+        color: var(--media-color);
+        width: 80%;
+        max-height: 95vh;
+        align-content: center;
+        align-self: center;
+        margin: 0.4em auto;
+        padding: 1.2em;
+    }
+    .medcurr img, .medprev img {
+        background-color: var(--media-background); /* soft black */
+        color: var(--media-color);
+    }
+    .medcurr   img, .medcurr  p, .medprev   img, .medprev  p {
+        width: 80%;
+        align-self: center;
+        margin: 0.1em auto;
+        padding: 0.1em; 
+        align-content: center;
+    }
+
+    @media only screen and (min-width: 769px) {
+        .medcurr   img, .medprev   img, .medcurr  p, .medprev  p {
+        flex-basis: 45%; /* less than 50% to fit 2 images side by side */
+        width: 40%; /* overwrites width above for medcurr & medprev */
+        font-size: 1em;
+        margin: 0.1em auto;
+        padding: 0.1em ;
+        
+    }} /* wide screen for previous media:- image */
+    @media only screen and (min-width: 769px) {
+        .medcurr   video, .medprev   video{
+        flex-basis: 75%; /* more than 50% so only 1 per 'line' */
+        width: 40%; /* overwrites width above for medcurr & medprev */
+        font-size: 0.8em;
+        margin: 0.1em auto;
+        padding: 0.1em;
+    }} /* wide screen for previous media:-  video */
+
+    @media only screen and (min-width: 769px) {
+        .medcurr  audio, .medprev   audio {
+        flex-basis: 55%; /* more than 50% so only 1 per 'line' */
+        width: 40%;
+        margin: 0.1em auto;
+        padding: 0.1em;
+        align-content: center;
+        align-self: center;
+    }} /* wide screen for previous media:- audio */
+
+    .medbox { /* Box to display Greetings */
+        width: 80%;
+        align-content: center;
+        align-self: center;
+        align-items: center;
+    }
+    @media only screen and (min-width:769px) {
+        .medbox { /* Box - wide screen */
+            width: 54%; /* not too wide for text: verses for each day */
+    }}
+
+    .medbox p { /* Greetings */
+        background-color: var(--mbox-background);  /* 2b26cc  0068D1 */
+        color: var(--media-color);
+        width: auto;
+        max-width: 92%; /* allow for padding, margin */
+        height: auto;
+        margin: 0.4em auto;
+        padding: 0.4em 3%;
+        line-height: 120%;
+    }
+    @media only screen and (min-width:769px) {
+        .medbox p { /* Greetings - wide screen*/
+            width: auto;
+            max-width: 58%; /* not too wide */
+            margin: 1em auto;
+            padding: 2em 8%;
+    }}
+
+    .audiodiv { /* Div to contain audio recordings */
+        background-color: var(--audio-background);
+        border: 1px solid var(--dark-border);
+        width: 97%;
+        display: flex;
+        flex-flow: row wrap;
+        overflow: auto;
+        color: #f0f0f0;
+        justify-content: center;
+        align-content: center;
+        margin: 0em auto;
+        padding: 0em;
+    } 
+
+    .audioitem { /* Audio recordings */
+        background-color: var(--auditem-background);
+        border: 1px solid var(--aud-border);
+        flex-basis: 30%; /* 3 per line */
+        overflow: auto;
+        color: var(--button-color);
+        margin: 0.1em 0.1em;
+        padding: 0.1em 0.1em;
+        font-size: 1.0em;
+        align-items: center;
+        text-align: center;
+        align-self: center;
+    }
+
+    .listdiv { /* Div to contain list of scriptures (audio) */
+        display: flex;
+        flex-flow: row wrap;
+        margin: 0.1em auto;
+        padding: 0.1em;
+    }
+    .listitem { /* Scripture audios in the list */
+        background-color: var(--auditem-background);  /*    0068D1    */
+        border: 1px solid var(--auditem-background); /* if user overrides colors then border should at least show */
+        flex-basis: 30%;
+        color: var(--media-color);
+        text-align: center;
+        margin: 0.1em auto;
+        padding: 0.1em;
+    }
+
+    .gallerydiv {
+        width: 95%;
+        /*max-width: 100vw;*/
+        background-color: var(--media-background);
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-items: center;
+        margin: 0 auto;
+    }
+    .gallerydiv video {
+        background-color: var(--media-background); /* soft black */
+        color: var(--media-color);
+        width: auto;
+        max-height: 80vh;
+        align-content: center;
+        align-self: center;
+        margin: 0.4em auto;
+        padding: 1.2em;
+    }
+    .gallerydiv img {
+        flex-basis: 31.5%; /* 3 per line */
+        overflow: auto;
+        height: max-content;
+        justify-content:space-around;
+        margin: 0 auto;
+        padding: 0.5%;
+    }
+    .gallerypic5 {
+        flex-basis: 16.5%; /* 5 per line */
+        overflow: auto;
+        height: max-content;
+        justify-content:space-around;
+        margin: 0 auto;
+        padding: 0.5%;
+    }
+    .gallerypic3 {
+        flex-basis: 31.5%; /* 3 per line */
+        overflow: auto;
+        height: max-content;
+        justify-content:space-around;
+        margin: 0 auto;
+        padding: 0.5%;
+    }
+
+    .sayings { /* Quotes / sayings: text */
+        background-color:var(--mbox-background);  /* #006CD1   0068D1  darkblue 213863 */
+        color:  var(--main-text-color);
+        font-size: 1.4em;
+        width: 92%;
+        margin: 0.4em auto;
+        padding: 0.4em 1em;
+    }
+    @media only screen and (min-width:769px) {
+        .sayings { /* Quotes / sayings: text - wide screen */
+            width: 70%;
+            margin: 0.4em auto;
+            padding: 0.4em 3em;
+    }}
+    
+    .centers { /* Centered display */
+        width: 80%;
+        display: block;
+        align-items: center;
+        align-content: center;
+        justify-items: center;
+        justify-content: center;
+        justify-self: center;
+        align-self: center;
+        text-align: center;
+        margin: 2% auto;
+        padding: 2%;
+        clear: both;
+    }
+
+	.clears { /* General display clearing both sides */
+        width: 80%;
+        text-align: center;
+        align-content: center;
+        margin: 3% auto;
+        padding: 3% 1%;
+		clear: both;
+	}
+
+    .text { /* Simple text */
+        background-color: var(--std-background);  /* same background color as footerdiv */
+        color: var(--main-text-color);
+        font-size: 1.0em;
+        margin: 0.1em auto;
+        padding: 0.1em 0.8em;
+    }
+
+    .updaily { /* Text msg about daily updates */
+        background-color: var(--mbox-background);
+        border: 2px solid  var(--dark-border);
+        width: 90%;
+        max-width: 980px;
+        font-size: 1.1em;
+        font-weight: normal;
+        color: var(--main-text-color);
+        margin: 2% auto;
+        padding: 2%;
+        text-align: center;
+    }
+
+    .blesshad { /* Blessing text with shadow as outline */
+        font-size: 3.5em;
+        color: var(--media-color);
+        text-shadow: 0 0 4px var(--main-text-color); /* use shadow to 'outline' the text */
+        /*text-shadow:
+        -1px -1px 0 #000,
+        0   -1px 0 #000,
+        1px -1px 0 #000,
+        1px  0   0 #000,
+        1px  1px 0 #000,
+        0    1px 0 #000,
+        -1px  1px 0 #000,
+        -1px  0   0 #000; /* very detailed shadow for soldi outline */
+        text-align: center;
+        width: auto;
+        font-weight: 700;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0;
+    }
+    @media only screen and (max-width: 650px) {
+        .blesshad {
+            font-size: 1.9em;;
+    }}
+    @media only screen and (max-width: 500px) {
+        .blesshad {
+            font-size: 1.6em;;
+    }}
+
+     	/* IDs */
+
+    #logobig {
+        height: 50vh;
+        width: auto;
+        max-height: 600px;
+    }
+
+	#logo {
+		display: flex;
+        flex-flow: row wrap;
+        overflow: auto;
+        margin: 0.4em 1%;
+	}
+ 
+    #logopic { /* square logo pic */
+        flex-basis: 6%;
+        height: 1.7em; /* similar size to half navtop - a */
+        width: auto;
+    }
+
+    #navtop {
+        flex-basis: 90%;
+        font: 1.2em  Arial, Helvetica, sans-serif;
+        color: var(--button-color);
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        align-self: center; /* vertically aligned with logopic */
+    } /* nav items display as per the Classes e.g. navactive */
+    #navtop a {
+        text-align: center;
+        height: 3.4em; /* similar size to logopic */
+        line-height: 200%; /* need this to avoid overlap on high zoom */
+        padding: 0.4em 0.4em;
+        margin: 0.6em 0.4em;
+    } /* a:hover and a:active as per all 'a' items (above) */
+
+    #navbottom {
+        /*background-color: #ffff00;*/
+        width: 95%;
+        display: block;
+        margin: 0.5em auto;
+        padding: 0.5em;
+        clear: both;
+        text-align: center;
+    } /* just a small duplicate of navtop for convenience */
+    #navbottom a {
+        text-align: center;
+        line-height: 200%;
+    }
+
+    #headtext {
+        color: var(--head-color);  /* f0f0f0 */
+        font: 1.1em  Arial, Helvetica, sans-serif;
+        font-weight: 900;
+        text-shadow: 0.05em 0.05em 0.01em var(--head-shadow); /* DEDE2C   FFFF33 */
+        text-align: center;
+		margin:  0.4em auto;
+        padding: 0.4em 3%;
+    }
+    @media only screen and (min-width:300px) {
+        #headtext {
+            font: 1.3em  Arial, Helvetica, sans-serif;
+            font-weight: 900;
+    }}
+    @media only screen and (min-width:769px) {
+        #headtext {
+            font: 1.4em  Arial, Helvetica, sans-serif;
+            font-weight: 900;
+    }}
+    @media only screen and (min-width:1229px) {
+        #headtext {
+            font: 1.6em  Arial, Helvetica, sans-serif;
+            font-weight: 900;
+    }}
+    @media only screen and (min-width:1649px) {
+        #headtext {
+            font: 1.8em  Arial, Helvetica, sans-serif;
+            font-weight: 900;
+    }}
+
+    #contactus { /* contact us section */
+        width: 80%;
+        display: block;
+        text-align: center;
+        margin: 2% auto;
+        padding: 2%;
+        clear: both;
+    }
+
+    #emladr {
+        border: 2px solid var(--dark-border); /* slightly darker than body background */
+        color:#2b26cc;
+    }
+    #emladr:hover {
+        background-color: var(--button-hover);
+        border: 2px dashed var(--button-hover); /* if colors set for impared vision */
+    }
+    #emladrimg { /* border #9e764a */
+        border: 2px solid var(--dark-border); /* slightly darker than body background */
+        background-color: inherit;
+        box-shadow: inherit;
+        display: block;
+        max-width: 90%; /* small screen - show bigger */
+        line-height: 100%; 
+        margin: 2% auto;
+        padding: 0;
+    }
+    @media only screen and (min-width: 769px) {
+        #emladrimg {
+            max-width: 65%; /* wide screen - not too big */
+    }}
+    #emladrimg:hover {
+        background-color: var(--button-hover);
+        border: 2px dashed var(--button-hover); /* if colors set for impared vision */
+        box-shadow: inherit;
+    }
+    #logolink { /* border #9e764a */
+        border: 2px solid var(--dark-border); /* slightly darker than background */
+        background-color: inherit;
+        box-shadow: inherit;
+        display: block;
+        max-width: 90%; /* small screen - show bigger */
+        line-height: 100%; 
+        margin: 1% auto;
+        padding: 0;
+    }
+    @media only screen and (min-width: 769px) {
+        #logolink {
+            max-width: 65%; /* wide screen - not too big */
+    }}
+    #logolink:hover {
+        background-color: var(--button-hover);
+        border: 2px dashed var(--button-hover); /* if colors set for impared vision */
+        box-shadow: inherit;
+    }
+    #footerdiv {
+        background-color: var(--std-background);
+        color: var(--main-text-color);
+        font-size: 1.2em;
+        width: 98vw;
+        text-align: center;
+        margin: 0.5em auto;
+        padding: 0.2em 0.5em;
+		clear: both;
+    }
+    @media only screen and (min-width: 769px) {
+        #footerdiv {
+            width: 70vw;
+    }}
+    
+    /* Smart email (hidden)- replaced via js */
+    #emladr , #emlbutton, #emlbut, #emlwait {
+        font: 1.6em  Arial, Helvetica, sans-serif;
+        margin: 1.5em auto;
+        padding: 0.5em;
+    }
+    
+    #emlbutton {
+        background-color: var(--eml-background);
+        color: var(--eml-color);
+        font: 1.6em  Arial, Helvetica, sans-serif;
+    }
+    #emlbutton:hover { /* hover only for emlbutton, not emlbut */
+        background-color: var(--eml-color);
+        color: var(--robot-color);
+        font-style: italic;
+        font-weight: bold;
+    }
+    #emlbut { /* no hover once id changed to emlbut (javascript) */
+        color: var(--eml-text);
+        margin-bottom: -0.25em;
+    }
+    #emlwaiter { /* instructions to wait.. click/ right-click) */
+        color: var(--eml-color);
+        margin: 0 auto;
+        padding: 0;
+    }
+    #emlwait { /* instructions to wait.. click/ right-click) */
+        color: var(--eml-text);
+        margin: 0.25 auto;
+        padding: 0.25em;
+    }
+
+    #emlpic {
+        width: 90%;
+        text-align: center;
+        align-content: center;
+        margin: 0.5em auto;
+        padding: 0.5em;
+        clear: both;
+    }
+
+    #emltext, #clicktext { /* similar to h4 */
+        color: var(--main-text-color2);
+        font: 1.6em  Arial, Helvetica, sans-serif;
+		margin: 0.2em 0.5em;
+        padding: 0.2em;
+        line-height: 100%;
+    }
+
+	/* @end */
+
