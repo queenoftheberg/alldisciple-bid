@@ -402,7 +402,7 @@
         padding: 0.1em;
     }
 
-    .gallerydiv {
+    .gallerydiv { /* FLEX CONTAINER */
         width: 95%;
         /*max-width: 100vw;*/
         background-color: var(--media-background);
@@ -412,9 +412,10 @@
         justify-items: center;
         margin: 0 auto;
     }
-    .gallerydiv video {
+    .gallerydiv video { /* any video in gallerydiv */
         background-color: var(--media-background); /* soft black */
         color: var(--media-color);
+        flex-basis: auto;
         width: auto;
         max-height: 80vh;
         align-content: center;
@@ -422,29 +423,45 @@
         margin: 0.4em auto;
         padding: 1.2em;
     }
-    .gallerydiv img {
-        flex-basis: 31.5%; /* 3 per line */
+    .gallerydiv img { /* any img in gallerydiv */
+        background-color: var(--media-background); /* soft black */
+        color: var(--media-color);
+        width: auto;
         overflow: auto;
-        height: max-content;
         justify-content:space-around;
         margin: 0 auto;
         padding: 0.5%;
     }
-    .gallerypic5 {
-        flex-basis: 16.5%; /* 5 per line */
-        overflow: auto;
+    .gallerythin {
+        /* flex-basis: 16.5%; 5 per line */
+        flex-basis: 12%;
+        /*max-height: min-content;*/
+    }
+    .gallerywide {
+        /* flex-basis: 16.5%; 5 per line */
+        flex-basis: 36%;
+        /*max-height: min-content;*/
+    }
+    .gallerypic4 {
+        flex-basis:  auto;
+        max-width: 21.5%; /* 4 per line */ 
         height: max-content;
-        justify-content:space-around;
-        margin: 0 auto;
-        padding: 0.5%;
     }
     .gallerypic3 {
-        flex-basis: 31.5%; /* 3 per line */
-        overflow: auto;
-        height: max-content;
-        justify-content:space-around;
-        margin: 0 auto;
-        padding: 0.5%;
+        flex-basis: auto;
+        max-width: 31.5%;
+        /*flex-basis: 31.5%; /* 3 per line */
+        /*height: max-content;*/
+    }
+    .gallerypic2 {
+        flex-basis:  auto;
+        max-width: 42.5%; /* 2 per line */
+        /*height: max-content;*/
+    }
+    .gallerypic1 {
+        flex-basis:  auto;
+        max-width: 70%; /* 1 per line */
+        /*height: max-content;*/
     }
 
     .sayings { /* Quotes / sayings: text */
