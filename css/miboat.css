@@ -6,8 +6,8 @@
 /*  Attributes of 'body' are global to the site and all items contained therein */
     :root {
         --main-background: #75cde1;  /* light sea blue/green */
-        --main-text-color:#570303; /* 2f1b03 dark brown */
-        --main-text-color2: #00008b; /* dark blue #d03400 */
+        --main-text-color:#3c0303; /* 2f1b03 dark brown 570303 */
+        --main-text-color2: #4f2004; /* 00008b  dark blue #710606 4d0505 */
         --std-background: #00d0d0; /* 00d0d0 7fd7d7  #009a9a light blue/green */
         --stdinfo-background: #75cde1; /* same as main bkgrnd */
         --stdinfo-border: #d06800; /* no border=same as bkgrnd */
@@ -16,23 +16,24 @@
         --button-hover: #fafad2; /* lightgoldenrodyellow */
         --button-active: #ff0000; /* red */
         --button-page: #0000ff; /* blue */
+        --link-box-shad: #808080; /* grey */
         --audio-background: #50cdec;
-        --media-background: #333333; /* soft black (charcoal) */
+        --media-background: #00d0d0; /* 333333 soft black (charcoal) */
         --media-color: #f0f0f0; /* soft off-white */
-        --mbox-background: #75cde1 /* aqua / light green/blue 44dc8d */ ;
+        --mbox-background: #7ccee0 /* aqua / light green/blue 44dc8d */ ;
         --auditem-background: #d2aa7e;
         --aud-border: #0000ff;
         --dark-border: #165d5c;
         --eml-background: #333333; /* soft black button background */
         --eml-color: #ffff00; /* yellow */
-        --eml-text: #000; /* black */
-        --head-color: #000; /* 00008b dark blue */
-        --head-shadow: magenta; /* 570303 ea00ff yellow - red */
+        --eml-text: #000000; /* black */
+        --head-color: #000000; /* 00008b dark blue */
+        --head-shadow: #ff00ff; /* 570303 ea00ff magenta */
         --robot-color: #333333; /* soft black (charcoal) */
     }
     body { /* colors not in variables - for really old browsers */
         background-color:  #75cde1;  /* light sea blue */
-        color: #570303; /* dark brown */
+        color: #3c0303; /* dark brown 570303 */
 		font-family: Arial, Helvetica, sans-serif, times, serif;
         line-height: 1;
         /*font-size: 16px;*/
@@ -53,6 +54,7 @@
     }} /* for wider screen */
     @media only screen and (min-width: 1209px) {
         #bodydiv {
+            color:var(--main-text-color);
             max-width: 1500px;
     }} /* for rather wide screen */
 
@@ -80,12 +82,12 @@
         line-height: 200%;
         margin: 0.5em 0.8em;
         padding: 0.3em 0.7em;
-        box-shadow: 5px 5px 7px grey;
+        box-shadow: 5px 5px 7px var(--link-box-shad);
 	} /* same look for 'a' links .. navtop & navbottom have other attributes */
     a:active {
         color: var(--button-active);
         border: 2px solid var(--button-active);
-        font-style: italic;
+        font-style: oblique;
     } /* navtop & navbottom have no additional attributes for active */
     a:hover {
         background-color: var(--button-hover); /*  lightskyblue  */
@@ -98,13 +100,15 @@
 		font: 2.3em  Arial, Helvetica, sans-serif;
         text-align: center;
 		margin: 0.5em auto;
+        padding: 0;
 	}
 
     h2 {
 		font: 2.2em  Arial, Helvetica, sans-serif;
         text-align: center;
 		margin: 0.2em auto;
-        padding: 0;
+        padding: 0.8em;
+        padding-bottom: 0; /* closer to text directly below it */
 	}
 	
 	h3 {
@@ -123,11 +127,6 @@
 
     /* Classes */
 
-    .mpz {
-        margin: 0;
-        padding: 0;
-        line-height: 100%;
-    }
     .navactive   {
         display: inline;
         color: var(--button-page); /* show as active link for this page */
@@ -148,6 +147,7 @@
     .navout { /* this is a class, so there can be more than 1 */
         width: 95%;
         display: block;
+        font-size: 1.5em;
         text-align: center;
         align-items: center;
         margin: 0.5em auto;
@@ -156,8 +156,7 @@
         clear: both;
     } /* similar to navbottom (ID) */
 
-    .navlink { /* this is a class, so there can be more than 1 */
-        /*width: 95%;*/
+    .navlink { /* smaller link within text- paragraphs/ etc */
         display: inline-block;
         font-size: 1.2rem;
         text-align: center;
@@ -201,14 +200,13 @@
         padding: 0.5% 5%;
         text-align: center;
     }
-    .stdinfo p {
-        
+    .stdinfo > p {
         background-color: var(--stdinfo-background);
         width: 90%;
         max-width: 1200px;
         font-size: 1.0em;
         font-weight: normal;
-        color: #000000;
+        color: var(--main-text-color);
         margin: 2% auto;
         padding: 2%;
         text-align: center;
@@ -426,26 +424,26 @@
     .gallerydiv img { /* any img in gallerydiv */
         background-color: var(--media-background); /* soft black */
         color: var(--media-color);
+        max-height: 100vh;
+        height: auto;
         width: auto;
         overflow: auto;
         justify-content:space-around;
         margin: 0 auto;
         padding: 0.5%;
     }
-    .gallerythin {
-        /* flex-basis: 16.5%; 5 per line */
+    /* flex-basis: 16.5%; 5 per line */
+    .gallerythin { /* 2x wide + 1x thin to fit on 1 line */
         flex-basis: 12%;
         /*max-height: min-content;*/
     }
-    .gallerywide {
-        /* flex-basis: 16.5%; 5 per line */
+    .gallerywide { /* 2x wide + 1x thin to fit on 1 line */
         flex-basis: 36%;
         /*max-height: min-content;*/
     }
     .gallerypic4 {
         flex-basis:  auto;
         max-width: 21.5%; /* 4 per line */ 
-        height: max-content;
     }
     .gallerypic3 {
         flex-basis: auto;
@@ -456,16 +454,18 @@
     .gallerypic2 {
         flex-basis:  auto;
         max-width: 42.5%; /* 2 per line */
+        /*flex-basis: 42.5%; /* 3 per line */
         /*height: max-content;*/
     }
     .gallerypic1 {
         flex-basis:  auto;
-        max-width: 70%; /* 1 per line */
+        max-width: 70%; 
+        /*flex-basis: 70%; /* 1 per line */
         /*height: max-content;*/
     }
 
     .sayings { /* Quotes / sayings: text */
-        background-color:var(--mbox-background);  /* #006CD1   0068D1  darkblue 213863 */
+        background-color: var(--mbox-background);  /* #006CD1   0068D1  darkblue 213863 */
         color:  var(--main-text-color);
         font-size: 1.4em;
         width: 92%;
@@ -546,11 +546,11 @@
     }
     @media only screen and (max-width: 650px) {
         .blesshad {
-            font-size: 1.9em;;
+            font-size: 1.9em;
     }}
     @media only screen and (max-width: 500px) {
         .blesshad {
-            font-size: 1.6em;;
+            font-size: 1.6em;
     }}
 
      	/* IDs */
@@ -570,39 +570,54 @@
  
     #logopic { /* square logo pic */
         flex-basis: 6%;
-        height: 1.7em; /* similar size to half navtop - a */
+        height: 3.5em; /* similar size to navtop - a */
         width: auto;
     }
 
     #navtop {
         flex-basis: 90%;
-        font: 1.2em  Arial, Helvetica, sans-serif;
+        font: 1.0em  Arial, Helvetica, sans-serif;
         color: var(--button-color);
         width: 100%;
         height: auto;
         margin: 0px auto;
+        padding: 0;
         align-self: center; /* vertically aligned with logopic */
     } /* nav items display as per the Classes e.g. navactive */
     #navtop a {
         text-align: center;
-        height: 3.4em; /* similar size to logopic */
+        /*height: 2.0em; /* similar size to logopic */
         line-height: 200%; /* need this to avoid overlap on high zoom */
         padding: 0.4em 0.4em;
-        margin: 0.6em 0.4em;
+        margin: 0.2em 0.4em;
     } /* a:hover and a:active as per all 'a' items (above) */
 
     #navbottom {
         /*background-color: #ffff00;*/
         width: 95%;
         display: block;
-        margin: 0.5em auto;
-        padding: 0.5em;
+        margin: 0em auto;
+        padding: 0em;
         clear: both;
         text-align: center;
     } /* just a small duplicate of navtop for convenience */
     #navbottom a {
         text-align: center;
         line-height: 200%;
+    }
+
+    #banner {
+        align-items: center;
+        align-content: center;
+        margin: 0 auto;
+        padding: 0;
+    }
+    #headpic {
+        width: 100%;
+        display: block;
+        margin: 0% auto;
+        padding: 0%;
+        clear: both;
     }
 
     #headtext {
@@ -672,12 +687,14 @@
         box-shadow: inherit;
     }
     #logolink { /* border #9e764a */
-        border: 2px solid var(--dark-border); /* slightly darker than background */
+        border: none;
+        /*border: 2px solid var(--dark-border); /* slightly darker than background */
         background-color: inherit;
         box-shadow: inherit;
         display: block;
         max-width: 90%; /* small screen - show bigger */
-        line-height: 100%; 
+        line-height: 100%;
+        font-size: 0.7em;
         margin: 1% auto;
         padding: 0;
     }
