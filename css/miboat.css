@@ -772,5 +772,11 @@
         line-height: 100%;
     }
 
+    .divhide { /* right at the end, to override any DISPLAY that came before */
+        display: none;
+    }
+    #divhide { /* ADD TO CLASS or ID, as required */
+        display: none;
+    }  /*  TO HIDE A DIV THAT IS ABOUT TO CHANGE OR IS (WILL BE) INVALID  */
 	/* @end */
 
